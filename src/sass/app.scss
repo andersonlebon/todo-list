@@ -1,28 +1,28 @@
-@import 'bootstrap';
+// // @import 'bootstrap';
 
-@mixin transition($delay, $function) {
-  transition: all $delay $function;
-}
+// @mixin transition($delay, $function) {
+//   transition: all $delay $function;
+// }
 
-body {
-  //   background-color: blue;
-  font-size: 14px;
-}
+// body {
+//   //   background-color: blue;
+//   font-size: 14px;
+// }
 
-.main-container {
-  height: 80vh;
-  //   background-color: blue;{
-  .container {
-    ul {
-      box-shadow: 1px 1px 10px 2px rgba(0, 0, 255, 0.315);
+// .main-container {
+//   height: 80vh;
+//   //   background-color: blue;{
+//   .container {
+//     ul {
+//       box-shadow: 1px 1px 10px 2px rgba(0, 0, 255, 0.315);
 
-      li:hover {
-        background: $primary;
-        color: #ffff;
-        cursor: pointer;
+//       li:hover {
+//         background: $primary;
+//         color: #ffff;
+//         cursor: pointer;
 
-        @include transition(0.4s, ease);
-      }
-    }
-  }
-}
+//         @include transition(0.4s, ease);
+//       }
+//     }
+//   }
+// }

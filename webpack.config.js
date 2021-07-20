@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MinimizeCss = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -9,9 +10,12 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
+  },
+  optimization: {
+    minimizer: [new MinimizeCss()],
   },
   plugins: [
     new HtmlWebpackPlugin({
