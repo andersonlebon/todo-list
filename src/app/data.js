@@ -25,6 +25,7 @@ export default class Data {
   static getDataAll() {
     return tasks;
   }
+
   static getData(index) {
     const allData = Data.getDataAll();
     return allData.filter((adata) => adata.index === index)[0];
