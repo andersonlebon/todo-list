@@ -1,3 +1,22 @@
+@import 'bootstrap';
+
+@mixin transition($delay, $function) {
+  transition: all $delay $function;
+}
+
 body {
-  background-color: blue;
+  //   background-color: blue;
+  font-size: 14px;
+}
+
+.main-container {
+  height: 80vh;
+  //   background-color: blue;{
+
+  ul li:hover {
+    background: $primary;
+    color: #ffff;
+    cursor: pointer;
+    @include transition(0.4s, ease);
+  }
 }

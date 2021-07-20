@@ -4,7 +4,7 @@
   "description": "project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack serve --open --config webpack.config.js",
     "build": "webpack serve --open --config webpack.config.js"
   },
   "repository": {
@@ -31,6 +31,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "bootstrap": "^5.0.2",
+    "fontawesome": "^5.6.3",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
   }
