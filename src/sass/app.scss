@@ -20,6 +20,7 @@ body {
         background: $primary;
         color: #ffff;
         cursor: pointer;
+
         @include transition(0.4s, ease);
       }
     }
