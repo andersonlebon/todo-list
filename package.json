@@ -4,7 +4,8 @@
   "description": "project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/andersonlebon/todo-list/issues"
   },
-  "homepage": "https://github.com/andersonlebon/todo-list#readme"
+  "homepage": "https://github.com/andersonlebon/todo-list#readme",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  }
 }
