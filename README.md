@@ -39,6 +39,8 @@ For tracking linter errors locally you need to follow these steps:
 
   > `npx eslint .`
 
+- Use `npm run build` to run the app in live server
+
 ## Author
 
 👤 **Anderson Caleb**
