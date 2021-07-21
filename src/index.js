@@ -34,6 +34,9 @@ list.addEventListener('dragover', (e) => {
 });
 
 addIcon.addEventListener('click', () => {
-  addData(addTaskInput, list, Data);
+  addData(addTaskInput.value, list, Data);
   Data.displayTask(list);
+  const listItems = document.querySelectorAll('.draggable');
+  addDrogClass(listItems);
+  markAsDone(listItems);
 });
