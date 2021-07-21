@@ -31,14 +31,14 @@ body {
             outline: none;
           }
         }
-
-        &:hover {
-          background-color: transparent;
-        }
       }
 
       .ckeck-btn {
         margin-right: 10px;
+      }
+
+      .done {
+        text-decoration: line-through;
       }
 
       li {
