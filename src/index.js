@@ -28,9 +28,7 @@ list.addEventListener('dragover', (e) => {
     drag.id = todos.length;
   } else {
     list.insertBefore(drag, elementPrevious);
-    drag.id = elementPrevious.id + 1;
   }
-  console.log(elementPrevious.id);
 });
 
 addIcon.addEventListener('click', () => {
@@ -39,4 +37,11 @@ addIcon.addEventListener('click', () => {
   const listItems = document.querySelectorAll('.draggable');
   addDrogClass(listItems);
   markAsDone(listItems);
+  const clear = list.querySelector('.clearMarked');
+  if (clear === null) {
+    const li = document.createElement('li');
+    li.className = 'clearMarked list-group-item  text-center';
+    li.innerHTML = 'Clear all Completed';
+    list.appendChild(li);
+  }
 });
