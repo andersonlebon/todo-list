@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>ToDo list</title>
   </head>
   <body>
@@ -16,7 +20,17 @@
       "
     >
       <div class="container w-50">
-        <ul class="list list-group border border-primary"></ul>
+        <ul class="list add-task list-group border border-primary">
+          <li class="list-group-item">Today's to do</li>
+          <li class="list-group-item add-task d-flex justify-content-between">
+            <input
+              class="input-add"
+              type="text"
+              placeholder="Add to your list"
+            />
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </li>
+        </ul>
       </div>
     </div>
   </body>

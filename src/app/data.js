@@ -35,9 +35,9 @@ export default class Data {
     const allTasks = Data.getDataAll();
     allTasks.forEach((atask) => {
       const li = document.createElement('li');
-      li.className = 'list-group-item d-flex justify-content-between ';
-      li.innerHTML = `<div for="check">${atask.description}</div>
-  <input class="form-check-input ml-auto" type="checkbox" value="" id="check">
+      li.className = 'list-group-item d-flex ';
+      li.innerHTML = `<input class="form-check-input ckeck-btn ml-auto" value="checked" type="checkbox" id="check">
+      <div class="pl-3">${atask.description}</div > <span class="justify-self-end mr-auto"> <i class="fa fa-ellipsis-v"></i></span>
       `;
       container.appendChild(li);
     });

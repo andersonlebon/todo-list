@@ -4,7 +4,7 @@
   "description": "project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack --config webpack.config.js",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/andersonlebon/todo-list#readme",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "css-loader": "^6.2.0",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.1.0",
     "node-sass": "^6.0.1",
