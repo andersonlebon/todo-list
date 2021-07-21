@@ -20,8 +20,9 @@ const tasks = [
     index: 3,
   },
 ];
+let listItems;
 
-export default class Data {
+class Data {
   static getDataAll() {
     return tasks;
   }
@@ -35,16 +36,35 @@ export default class Data {
     const allTasks = Data.getDataAll();
     allTasks.forEach((atask) => {
       const li = document.createElement('li');
-      li.className = 'list-group-item d-flex ';
+      li.draggable = true;
+      li.className = 'list-group-item d-flex draggable';
       li.innerHTML = `<input class="form-check-input ckeck-btn ml-auto" value="checked" type="checkbox" id="check">
       <div class="pl-3">${atask.description}</div > <span class="justify-self-end mr-auto"> <i class="fa fa-ellipsis-v"></i></span>
       `;
       container.appendChild(li);
     });
-    const li = document.createElement('li');
-    li.className = 'list-group-item text-center clear';
-    li.innerHTML = 'Clear all completed';
-    container.appendChild(li);
+    listItems = document.querySelectorAll('.draggable');
     return container;
   }
 }
+const list = document.querySelector('.list');
+Data.displayTask(list);
+
+console.log(listItems);
+
+listItems.forEach((alist) => {
+  alist.addEventListener('dragstart', () => {
+    alist.classList.add('dragging');
+    console.log('drag');
+  });
+
+  alist.addEventListener('dragend', () => {
+    alist.classList.remove('dragging');
+    console.log('drag end');
+  });
+});
+
+list.addEventListener('dragover', () => {
+  console.log('drags over');
+  const drag = documen.querySelector('.dragging');
+});
