@@ -1,7 +1,6 @@
 import { sortTaskByIndex } from './dragDrop.js';
-import { addData } from './completTask.js';
 
-const tasks = [
+export const tasks = [
   {
     description: 'Attend morning session',
     completed: false,
@@ -14,7 +13,7 @@ const tasks = [
   },
   {
     description: 'afternoon session',
-    completed: true,
+    completed: false,
     index: 2,
   },
   {

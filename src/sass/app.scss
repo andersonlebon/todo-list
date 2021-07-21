@@ -16,20 +16,48 @@ body {
     ul {
       box-shadow: 1px 1px 10px 2px rgba(0, 0, 255, 0.315);
 
+      .title {
+        position: relative;
+
+        i {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: rgba(128, 128, 128, 0.842);
+          font-size: 18px;
+
+          &:hover {
+            color: rgba(0, 0, 0, 0.945);
+          }
+        }
+      }
+
       .clearMarked {
         color: rgba(128, 128, 128, 0.842);
         background-color: rgba(233, 233, 233, 0.863);
+        text-decoration: underline;
       }
 
-      .add-task {
+      .add-taskInput {
         .input-add {
           width: 100%;
           border: none;
           font-style: italic;
+          color: rgba(128, 128, 128, 0.842);
 
           &:focus {
             outline: none;
           }
+        }
+
+        &:hover {
+          background-color: #fff;
+          cursor: pointer;
+        }
+
+        i {
+          font-size: 20px;
+          color: rgba(128, 128, 128, 0.842);
         }
       }
 
@@ -39,6 +67,8 @@ body {
 
       .done {
         text-decoration: line-through;
+        color: rgba(128, 128, 128, 0.842);
+        background-color: rgba(233, 233, 233, 0.863);
       }
 
       li {
@@ -51,7 +81,7 @@ body {
           right: 20px;
         }
 
-        &:hover {
+        &:not(.add-taskInput):hover {
           background: $primary;
           color: #ffff;
           cursor: pointer;
@@ -61,4 +91,8 @@ body {
       }
     }
   }
+}
+
+.previousDrag {
+  transform: scale(1.5);
 }

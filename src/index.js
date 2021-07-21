@@ -10,7 +10,7 @@ import { markAsDone, addData } from './app/completTask.js';
 
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
-const addTaskInput = document.querySelector('.add-task input');
+const addTaskInput = document.querySelector('.add-taskInput input');
 
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
@@ -25,9 +25,10 @@ list.addEventListener('dragover', (e) => {
   const elementPrevious = getDragElementAfter(list, e.clientY);
   if (elementPrevious == null) {
     list.appendChild(drag);
-    drag.id = todos.length;
   } else {
+    elementPrevious.classList.add('previousDrag');
     list.insertBefore(drag, elementPrevious);
+    elementPrevious.classList.remove('previousDrag');
   }
 });
 
@@ -37,11 +38,4 @@ addIcon.addEventListener('click', () => {
   const listItems = document.querySelectorAll('.draggable');
   addDrogClass(listItems);
   markAsDone(listItems);
-  const clear = list.querySelector('.clearMarked');
-  if (clear === null) {
-    const li = document.createElement('li');
-    li.className = 'clearMarked list-group-item  text-center';
-    li.innerHTML = 'Clear all Completed';
-    list.appendChild(li);
-  }
 });
