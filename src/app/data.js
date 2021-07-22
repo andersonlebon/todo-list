@@ -23,9 +23,14 @@ export const tasks = [
   },
 ];
 
+
 export default class Data {
   static getDataAll() {
-    return tasks;
+    return JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  static storeData(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
   static getData(index) {
@@ -34,7 +39,9 @@ export default class Data {
   }
 
   static displayTask(container) {
-    const allTasks = sortTaskByIndex(Data.getDataAll());
+    const allTasks = Data.getDataAll() || [];
+    if (allTasks !== null) sortTaskByIndex(allTasks);
+
     allTasks.forEach((atask) => {
       const li = document.createElement('li');
       li.draggable = true;

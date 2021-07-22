@@ -51,13 +51,14 @@ export function markAsDone(listItems) {
 }
 
 export function addData(inputTask, list, Data) {
-  const tasks = Data.getDataAll();
+  const tasks = Data.getDataAll() || [];
   const newTask = {
     description: inputTask,
     completed: false,
     index: tasks.length + 1,
   };
   tasks.push(newTask);
+  Data.storeData(tasks);
   const addTask = list.querySelector('.add-taskInput');
   const title = list.querySelector('.title');
   list.innerHTML = '';
