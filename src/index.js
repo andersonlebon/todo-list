@@ -4,6 +4,7 @@ import 'fontawesome';
 import { addDrogClass, getDragElementAfter } from './app/dragDrop';
 import { markAsDone, addData } from './app/completTask';
 import updateTitle from './app/update';
+import { save } from 'fontawesome';
 
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
@@ -11,7 +12,7 @@ const addTaskInput = document.querySelector('.add-taskInput input');
 
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
-const listItemsCheck = document.querySelectorAll('.draggable input');
+const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
 
 addDrogClass(listItems);
 markAsDone(listItemsCheck);
@@ -43,4 +44,23 @@ addIcon.addEventListener('click', () => {
 
   addDrogClass(listItems);
   markAsDone(listItemsCheck);
+});
+
+const texts = document.querySelectorAll('.text');
+texts.forEach((text) => {
+  text.addEventListener('click', () => {
+    const modify = text.parentElement.querySelector('.modify-task');
+    modify.classList.add('d-flex');
+    modify.classList.add('justify-content-between');
+    modify.classList.remove('d-none');
+  });
+});
+
+const saveIcons = document.querySelectorAll('.save-text');
+
+saveIcons.forEach((icon) => {
+  icon.addEventListener('click', () => {
+    icon.parentElement.classList.remove('d-flex');
+    icon.parentElement.classList.add('d-none');
+  });
 });
