@@ -12,8 +12,9 @@ export default function updateTitle(targetList) {
       const text = input.value;
       console.log(text);
     });
-  } else {
-    const parent = check.parentElement;
-    parent.removeChild(check);
   }
+  //   else {
+  //     const parent = check.parentElement;
+  //     parent.removeChild(check);
+  //   }
 }
