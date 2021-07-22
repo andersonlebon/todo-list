@@ -12,6 +12,10 @@ This project is build with:
 - CSS;
 - JavaScript.
 
+## Live Demo
+
+> [demo](https://andersonlebon.github.io/todo-list/dist)
+
 ## Getting Started
 
 To get the content of this project locally you need to run this command in your terminal:
