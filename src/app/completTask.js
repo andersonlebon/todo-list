@@ -1,4 +1,5 @@
 import Data from './data';
+
 export function markAsDone(listItems) {
   let clearCompleted;
 
@@ -29,9 +30,7 @@ export function markAsDone(listItems) {
             list.removeChild(complet);
             const allTasks = Data.getDataAll();
             allTasks.splice(complet.id, 1);
-            console.log(Data.getDataAll());
           });
-          console.log(completed);
         });
       }
       const inputs = alist.parentElement.querySelectorAll('.ckeck-btn');
@@ -41,7 +40,6 @@ export function markAsDone(listItems) {
         }
       });
 
-      console.log(clearCompleted);
       clear = list.querySelector('.clearMarked');
       if (!clearCompleted) {
         const clear = list.querySelector('.clearMarked');
@@ -62,7 +60,6 @@ export function addData(inputTask, list, Data) {
   tasks.push(newTask);
   const addTask = list.querySelector('.add-taskInput');
   const title = list.querySelector('.title');
-  console.log(addTask);
   list.innerHTML = '';
   list.appendChild(title);
   list.appendChild(addTask);

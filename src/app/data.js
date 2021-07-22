@@ -1,4 +1,4 @@
-import { sortTaskByIndex } from './dragDrop.js';
+import { sortTaskByIndex } from './dragDrop';
 
 export const tasks = [
   {
@@ -35,7 +35,6 @@ export default class Data {
 
   static displayTask(container) {
     const allTasks = sortTaskByIndex(Data.getDataAll());
-    console.log(allTasks);
     allTasks.forEach((atask) => {
       const li = document.createElement('li');
       li.draggable = true;

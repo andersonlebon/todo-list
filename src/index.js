@@ -2,11 +2,10 @@ import './sass/app.scss';
 import Data from './app/data';
 import 'fontawesome';
 import {
-  sortTaskByIndex,
   addDrogClass,
   getDragElementAfter,
-} from './app/dragDrop.js';
-import { markAsDone, addData } from './app/completTask.js';
+} from './app/dragDrop';
+import { markAsDone, addData } from './app/completTask';
 
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
@@ -20,7 +19,6 @@ markAsDone(listItems);
 
 list.addEventListener('dragover', (e) => {
   e.preventDefault();
-  const todos = sortTaskByIndex(Data.getDataAll());
   const drag = document.querySelector('.dragging');
   const elementPrevious = getDragElementAfter(list, e.clientY);
   if (elementPrevious == null) {
