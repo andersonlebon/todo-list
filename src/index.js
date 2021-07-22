@@ -60,6 +60,8 @@ const saveIcons = document.querySelectorAll('.save-text');
 
 saveIcons.forEach((icon) => {
   icon.addEventListener('click', () => {
+    const input = icon.parentElement.querySelector('input');
+    console.log(input.value);
     icon.parentElement.classList.remove('d-flex');
     icon.parentElement.classList.add('d-none');
   });
