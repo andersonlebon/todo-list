@@ -1,20 +1,34 @@
-export default function updateTitle(targetList) {
-  const check = document.querySelector('.modify-task');
-  if (check === null) {
-    const inputContainer = document.createElement('div');
-    inputContainer.innerHTML = `<input class="" type="text" placeholder="Modify task..."/>
-                            <i class="fa fa-check-circle" aria-hidden="true"></i>`;
-    inputContainer.className = 'modify-task';
-    targetList.appendChild(inputContainer);
-    const modify = inputContainer.querySelector('i');
-    const input = inputContainer.querySelector('input');
-    modify.addEventListener('click', () => {
-      const text = input.value;
-      console.log(text);
+import Data from './data';
+
+export default function updateTitle(saveIcons, list) {
+  saveIcons.forEach((icon) => {
+    icon.addEventListener('click', () => {
+      const modifyTask = icon.parentElement;
+      const input = modifyTask.querySelector('input');
+      const li = modifyTask.parentElement;
+      const task = Data.getData(li.id);
+      task.description = input.value;
+      console.log(task);
+      Data.updateTasks(task);
+      const addTask = list.querySelector('.add-taskInput');
+      const title = list.querySelector('.title');
+      list.innerHTML = '';
+      list.appendChild(title);
+      list.appendChild(addTask);
+      Data.displayTask(list);
+      modifyTask.classList.remove('d-flex');
+      modifyTask.classList.add('d-none');
     });
-  }
-  //   else {
-  //     const parent = check.parentElement;
-  //     parent.removeChild(check);
-  //   }
+  });
+}
+
+export function showTexEditor(texts) {
+  texts.forEach((text) => {
+    text.addEventListener('click', () => {
+      const modify = text.parentElement.querySelector('.modify-task');
+      modify.classList.add('d-flex');
+      modify.classList.add('justify-content-between');
+      modify.classList.remove('d-none');
+    });
+  });
 }
