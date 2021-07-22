@@ -38,6 +38,12 @@ export default class Data {
     return allData.filter((adata) => adata.index == index)[0];
   }
 
+  static updateTasks(element) {
+    const allTasks = Data.getDataAll() || [];
+    allTasks.splice(element.id, 1, element);
+    Data.storeData(allTasks);
+  }
+
   static displayTask(container) {
     const allTasks = Data.getDataAll() || [];
     if (allTasks !== null) sortTaskByIndex(allTasks);
