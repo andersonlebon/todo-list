@@ -1,7 +1,13 @@
 export default function updateTitle(targetList) {
-  const inputContainer = document.createElement('div');
-  inputContainer.innerHTML = `<inputclass="" type="text" placeholder="Modify task..."/>
-                            < class="fa fa-plus-circle add-icon" aria-hidden="true"`;
-  inputContainer.className = 'modify-task';
-  targetList.appendChild(inputContainer);
+  const check = document.querySelector('.modify-task');
+  if (check === null) {
+    const inputContainer = document.createElement('div');
+    inputContainer.innerHTML = `<input class="" type="text" placeholder="Modify task..."/>
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    inputContainer.className = 'modify-task';
+    targetList.appendChild(inputContainer);
+  } else {
+    const parent = check.parentElement;
+    parent.removeChild(check);
+  }
 }
