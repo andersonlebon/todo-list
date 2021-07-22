@@ -13,9 +13,10 @@ const addTaskInput = document.querySelector('.add-taskInput input');
 
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
+const listItemsCheck = document.querySelectorAll('.draggable input');
 
 addDrogClass(listItems);
-markAsDone(listItems);
+markAsDone(listItemsCheck);
 
 list.addEventListener('dragover', (e) => {
   e.preventDefault();
@@ -34,6 +35,8 @@ addIcon.addEventListener('click', () => {
   addData(addTaskInput.value, list, Data);
   Data.displayTask(list);
   const listItems = document.querySelectorAll('.draggable');
+const listItemsCheck = document.querySelectorAll('.draggable input');
+
   addDrogClass(listItems);
-  markAsDone(listItems);
+  markAsDone(listItemsCheck);
 });

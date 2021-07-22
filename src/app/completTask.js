@@ -2,33 +2,31 @@ import Data from './data';
 
 export function markAsDone(listItems) {
   let clearCompleted;
-
   listItems.forEach((alist) => {
     let check = true;
+    let listParent = alist.parentElement;
     alist.addEventListener('click', () => {
-      const input = alist.querySelector('input');
-      input.checked = check;
-      if (input.checked) {
-        alist.classList.add('done');
+      alist.checked = check;
+      if (alist.checked) {
+        listParent.classList.add('done');
         const allTasks = Data.getDataAll() || [];
-        // console.log(allTasks);
-        const completData = Data.getData(alist.id);
+        const completData = Data.getData(listParent.id);
         completData.completed = true;
-        allTasks.splice(alist.id, 1, completData);
+        allTasks.splice(listParent.id, 1, completData);
         Data.storeData(allTasks);
         clearCompleted = true;
       } else {
-        alist.classList.remove('done');
+        listParent.classList.remove('done');
         clearCompleted = false;
         const allTasks = Data.getDataAll() || [];
-        // console.log(allTasks);
-        const completData = Data.getData(alist.id);
+        const completData = Data.getData(listParent.id);
         completData.completed = false;
-        allTasks.splice(alist.id, 1, completData);
+        allTasks.splice(listParent.id, 1, completData);
         Data.storeData(allTasks);
       }
       check = !check;
-      const list = alist.parentElement;
+      const list = listParent.parentElement;
+      console.log(list);
 
       let clear = list.querySelector('.clearMarked');
       if (clear === null) {
@@ -48,15 +46,15 @@ export function markAsDone(listItems) {
         });
       }
 
-      const inputs = alist.parentElement.querySelectorAll('.ckeck-btn');
+      const inputs = listParent.parentElement.querySelectorAll('.ckeck-btn');
       inputs.forEach((element) => {
         if (element.checked) {
           clearCompleted = true;
         }
       });
 
-      clear = list.querySelector('.clearMarked');
-      if (!clearCompleted) {
+      clear = document.querySelector('.none');
+      if (!clearCompleted && clear == null) {
         const clear = list.querySelector('.clearMarked');
         list.removeChild(clear);
       }
