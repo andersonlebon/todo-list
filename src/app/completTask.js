@@ -30,6 +30,7 @@ export function markAsDone(listItems) {
             list.removeChild(complet);
             const allTasks = Data.getDataAll();
             allTasks.splice(complet.id, 1);
+            Data.storeData(allTasks);
           });
         });
       }
