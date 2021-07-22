@@ -17,7 +17,7 @@ const listItems = document.querySelectorAll('.draggable');
 addDrogClass(listItems);
 markAsDone(listItems);
 
-list.addEventListener('dragover', (e) => {
+list.addEventListener('drag', (e) => {
   e.preventDefault();
   const drag = document.querySelector('.dragging');
   const elementPrevious = getDragElementAfter(list, e.clientY);
