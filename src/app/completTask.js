@@ -9,16 +9,20 @@ export function markAsDone(listItems) {
       alist.checked = check;
       if (alist.checked) {
         listParent.classList.add('done');
+        const allTasks = Data.getDataAll() || [];
         const completData = Data.getData(listParent.id);
         completData.completed = true;
-        Data.updateTasks(completData);
+        allTasks.splice(listParent.id, 1, completData);
+        Data.storeData(allTasks);
         clearCompleted = true;
       } else {
         listParent.classList.remove('done');
         clearCompleted = false;
+        const allTasks = Data.getDataAll() || [];
         const completData = Data.getData(listParent.id);
         completData.completed = false;
-        Data.updateTasks(completData);
+        allTasks.splice(listParent.id, 1, completData);
+        Data.storeData(allTasks);
       }
       check = !check;
       const list = listParent.parentElement;

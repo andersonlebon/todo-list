@@ -40,7 +40,9 @@ export default class Data {
 
   static updateTasks(element) {
     const allTasks = Data.getDataAll() || [];
-    allTasks.splice(element.id, 1, element);
+    let completData = Data.getData(element.id);
+    completData = element;
+    allTasks.splice(element.id, 1, completData);
     Data.storeData(allTasks);
   }
 
