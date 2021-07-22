@@ -10,6 +10,8 @@ export function markAsDone(listItems) {
       input.checked = check;
       if (input.checked) {
         alist.classList.add('done');
+        const completData = Data.getData(alist.id);
+        console.log(completData);
         clearCompleted = true;
       } else {
         alist.classList.remove('done');
@@ -27,15 +29,12 @@ export function markAsDone(listItems) {
         li.addEventListener('click', () => {
           const completed = list.querySelectorAll('.done');
           let allTasks = Data.getDataAll();
-          console.log(allTasks);
           completed.forEach((complet) => {
-            console.log(complet.id);
-            // allTasks.splice(complet.id, 1);
-          allTasks = allTasks.filter((task) => task.index != complet.id);
+            // eslint-disable-next-line eqeqeq
+            allTasks = allTasks.filter((task) => task.index != complet.id);
             list.removeChild(complet);
           });
           localStorage.setItem('tasks', JSON.stringify(allTasks));
-          console.log(allTasks);
         });
       }
 
