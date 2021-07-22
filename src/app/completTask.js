@@ -26,14 +26,19 @@ export function markAsDone(listItems) {
         list.appendChild(li);
         li.addEventListener('click', () => {
           const completed = list.querySelectorAll('.done');
+          let allTasks = Data.getDataAll();
+          console.log(allTasks);
           completed.forEach((complet) => {
+            console.log(complet.id);
+            // allTasks.splice(complet.id, 1);
+          allTasks = allTasks.filter((task) => task.index != complet.id);
             list.removeChild(complet);
-            const allTasks = Data.getDataAll();
-            allTasks.splice(complet.id, 1);
-            Data.storeData(allTasks);
           });
+          localStorage.setItem('tasks', JSON.stringify(allTasks));
+          console.log(allTasks);
         });
       }
+
       const inputs = alist.parentElement.querySelectorAll('.ckeck-btn');
       inputs.forEach((element) => {
         if (element.checked) {
@@ -56,7 +61,7 @@ export function addData(inputTask, list, Data) {
   const newTask = {
     description: inputTask,
     completed: false,
-    index: tasks.length + 1,
+    index: tasks.length,
   };
   tasks.push(newTask);
   Data.storeData(tasks);
