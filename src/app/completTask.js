@@ -31,11 +31,10 @@ export function markAsDone(listItems) {
         li.innerHTML = 'Clear all Completed';
         list.appendChild(li);
         li.addEventListener('click', () => {
-          let completed = list.querySelectorAll('.done');
+          const completed = list.querySelectorAll('.done');
           completed.forEach((complet) => {
             list.removeChild(complet);
-            let allTasks = Data.getDataAll();
-            // allTasks = [];
+            const allTasks = Data.getDataAll();
             allTasks.splice(complet.id, 1);
             console.log(Data.getDataAll());
           });
