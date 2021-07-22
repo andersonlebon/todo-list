@@ -10,12 +10,24 @@ export function markAsDone(listItems) {
       input.checked = check;
       if (input.checked) {
         alist.classList.add('done');
+        const allTasks = Data.getDataAll() || [];
+        // console.log(allTasks);
         const completData = Data.getData(alist.id);
-        console.log(completData);
+        completData.completed = true;
+        allTasks.splice(alist.id, 1, completData);
+        console.log(allTasks);
+        Data.storeData(allTasks);
         clearCompleted = true;
       } else {
         alist.classList.remove('done');
         clearCompleted = false;
+        const allTasks = Data.getDataAll() || [];
+        // console.log(allTasks);
+        const completData = Data.getData(alist.id);
+        completData.completed = false;
+        allTasks.splice(alist.id, 1, completData);
+        console.log(allTasks);
+        Data.storeData(allTasks);
       }
       check = !check;
       const list = alist.parentElement;

@@ -35,7 +35,8 @@ export default class Data {
 
   static getData(index) {
     const allData = sortTaskByIndex(Data.getDataAll());
-    return allData.filter((adata) => adata.index === index)[0];
+    // eslint-disable-next-line eqeqeq
+    return allData.filter((adata) => adata.index == index)[0];
   }
 
   static displayTask(container) {
