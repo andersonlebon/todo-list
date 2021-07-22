@@ -1,11 +1,9 @@
 import './sass/app.scss';
 import Data from './app/data';
 import 'fontawesome';
-import {
-  addDrogClass,
-  getDragElementAfter,
-} from './app/dragDrop';
+import { addDrogClass, getDragElementAfter } from './app/dragDrop';
 import { markAsDone, addData } from './app/completTask';
+import updateTitle from './app/update';
 
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
@@ -17,6 +15,12 @@ const listItemsCheck = document.querySelectorAll('.draggable input');
 
 addDrogClass(listItems);
 markAsDone(listItemsCheck);
+
+listItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    updateTitle(item);
+  });
+});
 
 list.addEventListener('dragover', (e) => {
   e.preventDefault();
@@ -35,7 +39,7 @@ addIcon.addEventListener('click', () => {
   addData(addTaskInput.value, list, Data);
   Data.displayTask(list);
   const listItems = document.querySelectorAll('.draggable');
-const listItemsCheck = document.querySelectorAll('.draggable input');
+  const listItemsCheck = document.querySelectorAll('.draggable input');
 
   addDrogClass(listItems);
   markAsDone(listItemsCheck);
