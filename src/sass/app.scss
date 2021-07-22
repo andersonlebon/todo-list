@@ -64,6 +64,7 @@ body {
           margin: 8px 16px 0;
           font-size: 20px;
           color: rgba(128, 128, 128, 0.842);
+          z-index: 999;
 
           &:hover {
             color: $primary;
