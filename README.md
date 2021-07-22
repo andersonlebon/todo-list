@@ -20,7 +20,9 @@ This project is build with:
 
 To get the content of this project locally you need to run this command in your terminal:
 
-- `https://github.com/andersonlebon/todo-list.git`
+- `git clone https://github.com/andersonlebon/todo-list.git`
+- `cd todo-list`
+- Use `npm start` to run the app in live server
 
 ## Test
 
@@ -64,3 +66,7 @@ Give a :star: if you like this project!
 ## Acknowledgments
 
 - Thanks to everyone who will get time to check this code especially to code reviewers.
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
