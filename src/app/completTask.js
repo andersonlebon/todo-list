@@ -1,14 +1,7 @@
 import Data from './data';
 export function markAsDone(listItems) {
   let clearCompleted;
-  const inputs = listItems[0].parentElement.querySelectorAll('input');
-  //   inputs.forEach((element) => {
-  //     if (element.checked) {
-  //       clearCompleted = true;
-  //     } else {
-  //       clearCompleted = false;
-  //     }
-  //   });
+
   listItems.forEach((alist) => {
     let check = true;
     alist.addEventListener('click', () => {
