@@ -23,7 +23,6 @@ export const tasks = [
   },
 ];
 
-
 export default class Data {
   static getDataAll() {
     return JSON.parse(localStorage.getItem('tasks'));

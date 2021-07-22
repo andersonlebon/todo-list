@@ -15,7 +15,6 @@ export function markAsDone(listItems) {
         const completData = Data.getData(alist.id);
         completData.completed = true;
         allTasks.splice(alist.id, 1, completData);
-        console.log(allTasks);
         Data.storeData(allTasks);
         clearCompleted = true;
       } else {
@@ -26,7 +25,6 @@ export function markAsDone(listItems) {
         const completData = Data.getData(alist.id);
         completData.completed = false;
         allTasks.splice(alist.id, 1, completData);
-        console.log(allTasks);
         Data.storeData(allTasks);
       }
       check = !check;
