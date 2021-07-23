@@ -1,5 +1,5 @@
 import { sortTaskByIndex } from './dragDrop';
-import updateTitle, { showTexEditor } from './update';
+import updateTitle, { DeleteTask, showTexEditor } from './update';
 
 export const tasks = [
   {
@@ -65,7 +65,7 @@ export default class Data {
       inputContainer.innerHTML = `<input class="" type="text" placeholder="Modify task..."/>
                                   <div class="d-flex justify-content-end align-items-center"> 
                                   <span class="save-text"><i class="fa fa-check-circle " ></i></span>
-                                  <span><i class="fa fa-trash"></i></span>
+                                  <span class="delete"><i class="fa fa-trash"></i></span>
                                   </div>`;
       inputContainer.className = 'modify-task d-none';
       const input = li.querySelector('input');
@@ -77,10 +77,13 @@ export default class Data {
       }
       container.appendChild(li);
     });
+    const list = document.querySelector('.list');
     const texts = document.querySelectorAll('.plus');
     showTexEditor(texts);
+    const DeleteIcons = document.querySelectorAll('.delete');
+    DeleteTask(DeleteIcons, list);
+
     const saveIcons = document.querySelectorAll('.save-text');
-    const list = document.querySelector('.list');
     updateTitle(saveIcons, list);
   }
 }

@@ -55,7 +55,7 @@ export function DeleteTask(DeleteIcons, list) {
       list.innerHTML = '';
       list.appendChild(title);
       list.appendChild(addTask);
-      Data.displayTask(allTasks);
+      Data.displayTask(list);
       const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
       markAsDone(listItemsCheck);
       modifyTask.parentElement.classList.remove('d-flex');

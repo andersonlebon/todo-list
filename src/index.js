@@ -3,7 +3,7 @@ import Data from './app/data';
 import 'fontawesome';
 import { addDrogClass, getDragElementAfter } from './app/dragDrop';
 import { markAsDone, addData } from './app/completTask';
-import updateTitle, { showTexEditor } from './app/update';
+import updateTitle, { DeleteTask, showTexEditor } from './app/update';
 import { save } from 'fontawesome';
 
 const list = document.querySelector('.list');
@@ -45,6 +45,8 @@ addIcon.addEventListener('click', () => {
   console.log(listItemsCheck);
   const saveIcons = document.querySelectorAll('.save-text');
   const texts = document.querySelectorAll('.plus');
+  const DeleteIcons = document.querySelectorAll('.delete');
+  DeleteTask(DeleteIcons, list);
 
   updateTitle(saveIcons, list);
   showTexEditor(texts);
