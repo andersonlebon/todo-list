@@ -2,29 +2,6 @@
 import { sortTaskByIndex } from './dragDrop';
 import updateTitle, { DeleteTask, showTexEditor } from './update';
 
-export const tasks = [
-  {
-    description: 'Attend morning session',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'lanch breack',
-    completed: false,
-    index: 6,
-  },
-  {
-    description: 'afternoon session',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'evening session',
-    completed: false,
-    index: 3,
-  },
-];
-
 export default class Data {
   static getDataAll() {
     return JSON.parse(localStorage.getItem('tasks'));
