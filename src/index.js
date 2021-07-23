@@ -10,10 +10,12 @@ const addTaskInput = document.querySelector('.add-taskInput input');
 
 const allData = Data.getDataAll();
 let index = 0;
-allData.forEach((adata) => {
-  adata.index = index;
-  index += 1;
-});
+if (allData !== null) {
+  allData.forEach((adata) => {
+    adata.index = index;
+    index += 1;
+  });
+}
 Data.storeData(allData);
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
