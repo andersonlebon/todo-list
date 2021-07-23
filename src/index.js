@@ -44,12 +44,8 @@ addIcon.addEventListener('click', () => {
   const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
   console.log(listItemsCheck);
   const saveIcons = document.querySelectorAll('.save-text');
-  const texts = document.querySelectorAll('.plus');
-  const DeleteIcons = document.querySelectorAll('.delete');
-  DeleteTask(DeleteIcons, list);
 
   updateTitle(saveIcons, list);
-  showTexEditor(texts);
   addDrogClass(listItems);
   markAsDone(listItemsCheck);
 });
