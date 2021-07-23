@@ -8,6 +8,13 @@ const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
 const addTaskInput = document.querySelector('.add-taskInput input');
 
+const allData = Data.getDataAll();
+let index = 0;
+allData.forEach((adata) => {
+  adata.index = index;
+  index += 1;
+});
+Data.storeData(allData);
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
 const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
