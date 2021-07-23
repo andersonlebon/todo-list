@@ -27,8 +27,6 @@ export function markAsDone(listItems) {
       }
       check = !check;
       const list = listParent.parentElement;
-      console.log(list);
-
       let clear = list.querySelector('.clearMarked');
       if (clear === null) {
         const li = document.createElement('li');

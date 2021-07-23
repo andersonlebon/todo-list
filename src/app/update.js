@@ -21,15 +21,12 @@ export default function updateTitle(saveIcons, list) {
   saveIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
       const modifyTask = icon.parentElement;
-      console.log(modifyTask.parentElement);
-
       const input = modifyTask.parentElement.querySelector('input');
       const li = modifyTask.parentElement.parentElement;
       const task = Data.getData(li.id);
       task.description = input.value;
       const allTasks = Data.getDataAll();
       allTasks.splice(li.id, 1, task);
-      console.log(task);
       Data.storeData(allTasks);
       const addTask = list.querySelector('.add-taskInput');
       const title = list.querySelector('.title');
@@ -54,12 +51,8 @@ export function DeleteTask(DeleteIcons, list) {
       if (allTasks.length === 1) {
         Data.storeData([]);
       } else {
-        const task = Data.getData(li.id);
         allTasks.splice(li.id, 1);
-        console.log(task);
-        console.log(li);
         Data.storeData(allTasks);
-        console.log(allTasks);
       }
       const addTask = list.querySelector('.add-taskInput');
       const title = list.querySelector('.title');

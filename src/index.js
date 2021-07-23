@@ -7,7 +7,6 @@ import updateTitle, { DeleteTask, showTexEditor } from './app/update';
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
 const addTaskInput = document.querySelector('.add-taskInput input');
-console.log(addTaskInput);
 
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
@@ -40,7 +39,6 @@ addIcon.addEventListener('click', () => {
   Data.displayTask(list);
   const listItems = document.querySelectorAll('.draggable');
   const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
-  console.log(listItemsCheck);
   const saveIcons = document.querySelectorAll('.save-text');
   const texts = document.querySelectorAll('.plus');
   const DeleteIcons = document.querySelectorAll('.delete');
