@@ -9,6 +9,7 @@ import { save } from 'fontawesome';
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
 const addTaskInput = document.querySelector('.add-taskInput input');
+console.log(addTaskInput);
 
 Data.displayTask(list);
 const listItems = document.querySelectorAll('.draggable');
@@ -40,18 +41,19 @@ addIcon.addEventListener('click', () => {
   addData(addTaskInput.value, list, Data);
   Data.displayTask(list);
   const listItems = document.querySelectorAll('.draggable');
-  const listItemsCheck = document.querySelectorAll('.draggable input');
+  const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
+  console.log(listItemsCheck);
   const saveIcons = document.querySelectorAll('.save-text');
-  const texts = document.querySelectorAll('.text');
-  addDrogClass(listItems);
-  markAsDone(listItemsCheck);
+  const texts = document.querySelectorAll('.plus');
+
   updateTitle(saveIcons, list);
   showTexEditor(texts);
+  addDrogClass(listItems);
+  markAsDone(listItemsCheck);
 });
 
-const texts = document.querySelectorAll('.text');
-// showTexEditor(texts);
+const texts = document.querySelectorAll('.plus');
+showTexEditor(texts);
 
 const saveIcons = document.querySelectorAll('.save-text');
-
 updateTitle(saveIcons, list);

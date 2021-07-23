@@ -1,4 +1,5 @@
 import { sortTaskByIndex } from './dragDrop';
+import updateTitle, { showTexEditor } from './update';
 
 export const tasks = [
   {
@@ -57,14 +58,17 @@ export default class Data {
       const check = atask.completed ? 'checked' : 'unchecked';
       li.className = 'list-group-item d-flex draggable';
       li.innerHTML = `<input class="form-check-input ckeck-btn ml-auto" ${check} type="checkbox" id="check">
-      <div class="pl-3 text">${atask.description}</div > <span class="justify-self-end mr-auto"> <i class="fa fa-ellipsis-v"></i></span>
+      <div class="pl-3 text">${atask.description}</div > 
+      <span class="justify-self-end mr-auto plus"> <i class="fa fa-ellipsis-v"></i></span>
       `;
       const inputContainer = document.createElement('div');
       inputContainer.innerHTML = `<input class="" type="text" placeholder="Modify task..."/>
-                            <i class="fa fa-check-circle save-text" aria-hidden="true"></i>`;
+                                  <div class="d-flex justify-content-end align-items-center"> 
+                                  <span class="save-text"><i class="fa fa-check-circle " ></i></span>
+                                  <span><i class="fa fa-trash"></i></span>
+                                  </div>`;
       inputContainer.className = 'modify-task d-none';
       const input = li.querySelector('input');
-      const div = li.querySelector('div');
       li.appendChild(inputContainer);
       if (input.checked) {
         li.classList.add('done');
@@ -73,5 +77,10 @@ export default class Data {
       }
       container.appendChild(li);
     });
+    const texts = document.querySelectorAll('.plus');
+    showTexEditor(texts);
+    const saveIcons = document.querySelectorAll('.save-text');
+    const list = document.querySelector('.list');
+    updateTitle(saveIcons, list);
   }
 }

@@ -60,10 +60,27 @@ body {
           }
         }
 
+        div {
+          padding: 0 16px 0;
+          z-index: 999;
+          background-color: white;
+
+          span {
+            position: inherit;
+            margin-left: 8px;
+            padding: 0 !important;
+
+            &:nth-child(2) {
+              i {
+                color: $danger !important;
+              }
+            }
+          }
+        }
         i {
-          margin: 8px 16px 0;
+          // margin: 8px 16px 0;
           font-size: 20px;
-          color: rgba(128, 128, 128, 0.842);
+          color: $primary;
           z-index: 999;
 
           &:hover {
@@ -113,16 +130,23 @@ body {
         position: relative;
 
         span {
-          color: rgba(128, 128, 128, 0.842);
+          color: $primary;
           position: absolute;
-          top: 10px;
-          right: 20px;
+          top: 5px;
+          right: 0;
+          padding: 0 20px;
+          font-size: 20px;
         }
 
         &:not(.add-taskInput):hover {
           background: $primary;
           color: #ffff;
           cursor: pointer;
+          span {
+            // &:hover {
+            color: white;
+            // }
+          }
 
           @include transition(0.4s, ease);
         }

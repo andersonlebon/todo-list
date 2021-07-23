@@ -1,11 +1,27 @@
+import { markAsDone } from './completTask';
 import Data from './data';
+
+export function showTexEditor(texts) {
+  texts.forEach((text) => {
+    text.addEventListener('click', () => {
+      const modify = text.parentElement.querySelector('.modify-task');
+      modify.classList.add('d-flex');
+      modify.classList.add('justify-content-between');
+      modify.classList.remove('d-none');
+    });
+  });
+}
 
 export default function updateTitle(saveIcons, list) {
   saveIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
+      const texts = document.querySelectorAll('.plus');
+      showTexEditor(texts);
       const modifyTask = icon.parentElement;
-      const input = modifyTask.querySelector('input');
-      const li = modifyTask.parentElement;
+      console.log(modifyTask.parentElement);
+
+      const input = modifyTask.parentElement.querySelector('input');
+      const li = modifyTask.parentElement.parentElement;
       const task = Data.getData(li.id);
       task.description = input.value;
       console.log(task);
@@ -16,19 +32,10 @@ export default function updateTitle(saveIcons, list) {
       list.appendChild(title);
       list.appendChild(addTask);
       Data.displayTask(list);
-      modifyTask.classList.remove('d-flex');
-      modifyTask.classList.add('d-none');
-    });
-  });
-}
-
-export function showTexEditor(texts) {
-  texts.forEach((text) => {
-    text.addEventListener('click', () => {
-      const modify = text.parentElement.querySelector('.modify-task');
-      modify.classList.add('d-flex');
-      modify.classList.add('justify-content-between');
-      modify.classList.remove('d-none');
+      const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
+      markAsDone(listItemsCheck);
+      modifyTask.parentElement.classList.remove('d-flex');
+      modifyTask.parentElement.classList.add('d-none');
     });
   });
 }
