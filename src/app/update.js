@@ -15,8 +15,6 @@ export function showTexEditor(texts) {
 export default function updateTitle(saveIcons, list) {
   saveIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
-      const texts = document.querySelectorAll('.plus');
-      showTexEditor(texts);
       const modifyTask = icon.parentElement;
       console.log(modifyTask.parentElement);
 
@@ -24,8 +22,10 @@ export default function updateTitle(saveIcons, list) {
       const li = modifyTask.parentElement.parentElement;
       const task = Data.getData(li.id);
       task.description = input.value;
+      const allTasks = Data.getDataAll();
+      allTasks.splice(li.id, 1, task);
       console.log(task);
-      Data.updateTasks(task);
+      Data.storeData(allTasks);
       const addTask = list.querySelector('.add-taskInput');
       const title = list.querySelector('.title');
       list.innerHTML = '';
@@ -45,11 +45,17 @@ export function DeleteTask(DeleteIcons, list) {
     icon.addEventListener('click', () => {
       const modifyTask = icon.parentElement;
       const li = modifyTask.parentElement.parentElement;
-      const task = Data.getData(li.id);
       const allTasks = Data.getDataAll();
-      allTasks.splice(li.id, 1);
-      console.log(task);
-      Data.storeData(allTasks);
+      if (allTasks.length === 1) {
+        Data.storeData([]);
+      } else {
+        const task = Data.getData(li.id);
+        allTasks.splice(li.id, 1);
+        console.log(task);
+        console.log(li);
+        Data.storeData(allTasks);
+        console.log(allTasks);
+      }
       const addTask = list.querySelector('.add-taskInput');
       const title = list.querySelector('.title');
       list.innerHTML = '';

@@ -62,7 +62,7 @@ export default class Data {
       <span class="justify-self-end mr-auto plus"> <i class="fa fa-ellipsis-v"></i></span>
       `;
       const inputContainer = document.createElement('div');
-      inputContainer.innerHTML = `<input class="" type="text" placeholder="Modify task..."/>
+      inputContainer.innerHTML = `<input class="input-mod" type="text" placeholder="Modify task..."/>
                                   <div class="d-flex justify-content-end align-items-center"> 
                                   <span class="save-text"><i class="fa fa-check-circle " ></i></span>
                                   <span class="delete"><i class="fa fa-trash"></i></span>
