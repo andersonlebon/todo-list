@@ -16,6 +16,25 @@ body {
     ul {
       box-shadow: 1px 1px 10px 2px rgba(0, 0, 255, 0.315);
 
+      i {
+        // margin: 8px 16px 0;
+        font-size: 20px;
+        z-index: 999;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      span {
+        color: $primary;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        padding: 0 20px;
+        font-size: 20px;
+      }
+
       .add-taskInput {
         .input-add {
           width: 100%;
@@ -36,6 +55,22 @@ body {
         &:hover {
           background-color: #fff;
           cursor: pointer;
+        }
+      }
+
+      .title {
+        position: relative;
+
+        i {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: rgba(128, 128, 128, 0.842);
+          font-size: 18px;
+
+          &:hover {
+            color: rgba(0, 0, 0, 0.945);
+          }
         }
       }
 
@@ -64,6 +99,7 @@ body {
           padding: 0 16px 0;
           z-index: 999;
           background-color: white;
+          color: $primary;
 
           span {
             position: inherit;
@@ -77,36 +113,10 @@ body {
             }
           }
         }
-        i {
-          // margin: 8px 16px 0;
-          font-size: 20px;
-          color: $primary;
-          z-index: 999;
-
-          &:hover {
-            color: $primary;
-          }
-        }
 
         &:hover {
           background-color: #fff;
           cursor: pointer;
-        }
-      }
-
-      .title {
-        position: relative;
-
-        i {
-          position: absolute;
-          top: 10px;
-          right: 20px;
-          color: rgba(128, 128, 128, 0.842);
-          font-size: 18px;
-
-          &:hover {
-            color: rgba(0, 0, 0, 0.945);
-          }
         }
       }
 
@@ -129,23 +139,15 @@ body {
       li {
         position: relative;
 
-        span {
-          color: $primary;
-          position: absolute;
-          top: 5px;
-          right: 0;
-          padding: 0 20px;
-          font-size: 20px;
-        }
-
         &:not(.add-taskInput):hover {
           background: $primary;
           color: #ffff;
           cursor: pointer;
-          span {
-            // &:hover {
-            color: white;
-            // }
+
+          span:not(.save-text) {
+            i {
+              color: white;
+            }
           }
 
           @include transition(0.4s, ease);
