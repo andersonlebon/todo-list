@@ -39,3 +39,27 @@ export default function updateTitle(saveIcons, list) {
     });
   });
 }
+
+export function DeleteTask(DeleteIcons, list) {
+  DeleteIcons.forEach((icon) => {
+    icon.addEventListener('click', () => {
+      const modifyTask = icon.parentElement;
+      const li = modifyTask.parentElement.parentElement;
+      const task = Data.getData(li.id);
+      const allTasks = Data.getDataAll();
+      allTasks.splice(li.id, 1);
+      console.log(task);
+      Data.storeData(allTasks);
+      const addTask = list.querySelector('.add-taskInput');
+      const title = list.querySelector('.title');
+      list.innerHTML = '';
+      list.appendChild(title);
+      list.appendChild(addTask);
+      Data.displayTask(allTasks);
+      const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
+      markAsDone(listItemsCheck);
+      modifyTask.parentElement.classList.remove('d-flex');
+      modifyTask.parentElement.classList.add('d-none');
+    });
+  });
+}
