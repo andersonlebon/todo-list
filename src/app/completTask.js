@@ -1,10 +1,11 @@
+/* eslint-disable import/no-cycle */
 import Data from './data';
 
 export function markAsDone(listItems) {
   let clearCompleted;
   listItems.forEach((alist) => {
     let check = true;
-    let listParent = alist.parentElement;
+    const listParent = alist.parentElement;
     alist.addEventListener('click', () => {
       alist.checked = check;
       if (alist.checked) {

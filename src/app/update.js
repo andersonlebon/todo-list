@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { markAsDone } from './completTask';
 import Data from './data';
 
@@ -8,6 +9,10 @@ export function showTexEditor(texts) {
       modify.classList.add('d-flex');
       modify.classList.add('justify-content-between');
       modify.classList.remove('d-none');
+      const li = modify.parentElement;
+      const input = li.querySelector('.input-mod');
+      const task = Data.getData(li.id);
+      input.value = task.description;
     });
   });
 }

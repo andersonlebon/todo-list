@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { sortTaskByIndex } from './dragDrop';
 import updateTitle, { DeleteTask, showTexEditor } from './update';
 

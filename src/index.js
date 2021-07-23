@@ -1,10 +1,8 @@
 import './sass/app.scss';
 import Data from './app/data';
-import 'fontawesome';
 import { addDrogClass, getDragElementAfter } from './app/dragDrop';
 import { markAsDone, addData } from './app/completTask';
 import updateTitle, { DeleteTask, showTexEditor } from './app/update';
-import { save } from 'fontawesome';
 
 const list = document.querySelector('.list');
 const addIcon = document.querySelector('.add-icon');
