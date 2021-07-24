@@ -160,3 +160,9 @@ body {
 .previousDrag {
   transform: scale(1.5);
 }
+
+@media only screen and (max-width: 950px) {
+  .main-section {
+    width: 90% !important;
+  }
+}
