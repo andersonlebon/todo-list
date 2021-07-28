@@ -4,10 +4,11 @@ import updateTitle, { DeleteTask, showTexEditor } from './update';
 
 export default class Data {
   static getDataAll() {
-    return JSON.parse(localStorage.getItem('tasks'));
+    return localStorage.getItem('tasks');
   }
 
   static storeData(tasks) {
+    localStorage.clear('tasks');
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 

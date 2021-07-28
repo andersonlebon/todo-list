@@ -27,7 +27,7 @@ const documents = () => {
     <li class="list-group-item title">
     Today's to do <i class="fa fa-refresh" aria-hidden="true"></i>
     </li>
-    <li class="list-group-itemadd-taskInput">
+    <li class="list-group-item add-taskInput">
     <input class="input-add" type="text" placeholder="Add to your list..."/>
     <i class="fa fa-plus-circle add-icon" aria-hidden="true"></i>
     </li>

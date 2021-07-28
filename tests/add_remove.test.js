@@ -4,13 +4,16 @@ import documents from './mocks';
 
 test('shoul add element', () => {
   const DOM = documents();
+  localStorage.clear('tasks');
   const list = document.querySelector('.list');
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  //   const tasks = JSON.parse(localStorage.getItem('tasks'));
   const addTaskInput = document.querySelector('.add-taskInput input');
-  addData(addTaskInput, list, Data);
+  addData('hello', list, Data);
   //   localStorage.setItem('tasks', JSON.stringify(tasks));
-  //   const Ntasks = JSON.parse(localStorage.getItem('tasks'));
-  const allTasks = JSON.parse(localStorage.getItem('tasks li'));
+  const Ntasks = localStorage.getItem('tasks');
+  console.log(Ntasks);
+  Data.displayTask(list);
+  const allList = document.querySelectorAll('.list li');
 
-  expect(allTasks).toHaveLength(3);
+  expect(allList).toHaveLength(3);
 });
