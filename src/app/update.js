@@ -17,53 +17,61 @@ export function showTexEditor(texts) {
   });
 }
 
-export default function updateTitle(saveIcons, list) {
-  saveIcons.forEach((icon) => {
-    icon.addEventListener('click', () => {
-      const modifyTask = icon.parentElement;
-      const input = modifyTask.parentElement.querySelector('input');
-      const li = modifyTask.parentElement.parentElement;
-      const task = Data.getData(li.id);
-      task.description = input.value;
-      const allTasks = Data.getDataAll();
-      allTasks.splice(li.id, 1, task);
-      Data.storeData(allTasks);
-      const addTask = list.querySelector('.add-taskInput');
-      const title = list.querySelector('.title');
-      list.innerHTML = '';
-      list.appendChild(title);
-      list.appendChild(addTask);
-      Data.displayTask(list);
-      const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
-      markAsDone(listItemsCheck);
-      modifyTask.parentElement.classList.remove('d-flex');
-      modifyTask.parentElement.classList.add('d-none');
-    });
-  });
+export function deleteData(icon, list, Data) {
+  const modifyTask = icon.parentElement;
+  const li = modifyTask.parentElement.parentElement;
+  const allTasks = Data.getDataAll();
+  if (allTasks.length === 1) {
+    Data.storeData([]);
+  } else {
+    allTasks.splice(li.id, 1);
+    Data.storeData(allTasks);
+  }
+  const addTask = list.querySelector('.add-taskInput');
+  const title = list.querySelector('.title');
+  list.innerHTML = '';
+  list.appendChild(title);
+  list.appendChild(addTask);
+  Data.displayTask(list);
+  const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
+  markAsDone(listItemsCheck);
+  modifyTask.parentElement.classList.remove('d-flex');
+  modifyTask.parentElement.classList.add('d-none');
 }
 
 export function DeleteTask(DeleteIcons, list) {
   DeleteIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
-      const modifyTask = icon.parentElement;
-      const li = modifyTask.parentElement.parentElement;
-      const allTasks = Data.getDataAll();
-      if (allTasks.length === 1) {
-        Data.storeData([]);
-      } else {
-        allTasks.splice(li.id, 1);
-        Data.storeData(allTasks);
-      }
-      const addTask = list.querySelector('.add-taskInput');
-      const title = list.querySelector('.title');
-      list.innerHTML = '';
-      list.appendChild(title);
-      list.appendChild(addTask);
-      Data.displayTask(list);
-      const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
-      markAsDone(listItemsCheck);
-      modifyTask.parentElement.classList.remove('d-flex');
-      modifyTask.parentElement.classList.add('d-none');
+      deleteData(icon, list, Data);
     });
+  });
+}
+
+export function editTask(icon, list, input, Data) {
+  const modifyTask = icon.parentElement;
+
+  const li = modifyTask.parentElement.parentElement;
+  const task = Data.getData(li.id);
+  task.description = input;
+  const allTasks = Data.getDataAll();
+  allTasks.splice(li.id, 1, task);
+  Data.storeData(allTasks);
+  const addTask = list.querySelector('.add-taskInput');
+  const title = list.querySelector('.title');
+  list.innerHTML = '';
+  list.appendChild(title);
+  list.appendChild(addTask);
+  Data.displayTask(list);
+  const listItemsCheck = document.querySelectorAll('.draggable .ckeck-btn');
+  markAsDone(listItemsCheck);
+  modifyTask.parentElement.classList.remove('d-flex');
+  modifyTask.parentElement.classList.add('d-none');
+}
+
+export default function updateTitle(saveIcons, list) {
+  saveIcons.forEach((icon) => {
+    icon.addEventListener('click', () => {});
+    const input = icon.parentElement.parentElement.querySelector('input');
+    editTask(icon, list, input.value, Data);
   });
 }
