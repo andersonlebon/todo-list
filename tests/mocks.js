@@ -1,34 +1,59 @@
-/* eslint-disable import/no-cycle */
-import { sortTaskByIndex } from './dragDrop';
-import updateTitle, { DeleteTask, showTexEditor } from './update';
+/* eslint-disable max-classes-per-file */
 
-export default class Data {
+class LocalStorage {
+  constructor() {
+    this.storege = {
+      tasks: [],
+    };
+  }
+
+  getItem(key) {
+    return this.storege[key];
+  }
+
+  setItem(key, newtask) {
+    this.storege[key] = newtask;
+  }
+
+  clear(key) {
+    this.storege[key] = [];
+  }
+}
+
+const localStorage = new LocalStorage();
+const documents = () => {
+  document.body.innerHTML = `
+    <ul class="list add-task list-group border border-primary">
+    <li class="list-group-item title">
+    Today's to do <i class="fa fa-refresh" aria-hidden="true"></i>
+    </li>
+    <li class="list-group-item add-taskInput">
+    <input class="input-add" type="text" placeholder="Add to your list..."/>
+    <i class="fa fa-plus-circle add-icon" aria-hidden="true"></i>
+    </li>
+    </ul>
+    
+    `;
+  return document;
+};
+
+export class Data {
   static getDataAll() {
     return localStorage.getItem('tasks');
   }
 
   static storeData(tasks) {
-    localStorage.clear('tasks');
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasks', tasks);
   }
 
   static getData(index) {
-    const allData = sortTaskByIndex(Data.getDataAll());
+    const allData = Data.getDataAll();
     // eslint-disable-next-line eqeqeq
     return allData.filter((adata) => adata.index == index)[0];
   }
 
-  static updateTasks(element) {
-    const allTasks = Data.getDataAll() || [];
-    let completData = Data.getData(element.id);
-    completData = element;
-    allTasks.splice(element.id, 1, completData);
-    Data.storeData(allTasks);
-  }
-
   static displayTask(container) {
     const allTasks = Data.getDataAll() || [];
-    if (allTasks !== null) sortTaskByIndex(allTasks);
 
     allTasks.forEach((atask) => {
       const li = document.createElement('li');
@@ -56,13 +81,9 @@ export default class Data {
       }
       container.appendChild(li);
     });
-    const list = document.querySelector('.list');
-    const texts = document.querySelectorAll('.plus');
-    showTexEditor(texts);
-    const DeleteIcons = document.querySelectorAll('.delete');
-    DeleteTask(DeleteIcons, list);
-
-    const saveIcons = document.querySelectorAll('.save-text');
-    updateTitle(saveIcons, list);
   }
 }
+
+export default documents;
+
+Object.defineProperty(window, 'localStorage', { value: localStorage });

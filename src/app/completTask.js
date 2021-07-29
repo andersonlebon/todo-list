@@ -76,4 +76,5 @@ export function addData(inputTask, list, Data) {
   list.innerHTML = '';
   list.appendChild(title);
   list.appendChild(addTask);
+  Data.displayTask(list);
 }
